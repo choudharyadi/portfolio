@@ -4,9 +4,9 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <title>Jon Barron</title>
+  <title>Aditya Choudhary</title>
 
-  <meta name="author" content="Jon Barron">
+  <meta name="author" content="Aditya Choudhary">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -28,17 +28,21 @@
                     Aditya Choudhary
                   </p>
                   <p>
-                    I'm a undergraduate student at <a href="https://honorscollege.rutgers.edu/">Rutgers Honors
-                      College</a> in New Brunswick, where I am getting a degree in Computer Science.
+                    I'm an undergraduate student at <a href="https://honorscollege.rutgers.edu/">Rutgers Honors
+                      College</a> in New Brunswick, where I am getting a degree in Computer Science. 
+                      
+                      
+                    I want to work on <b>perception and control for autonomous mobile robots</b>: my projects span
+                    localization (Monte Carlo, SLAM-style mapping), path planning, and vision-based autonomy,
+                    from F1TENTH simulation to two VEX Robotics World Championships.
 
                   </p>
                   <p style="text-align:center">
-                    <a href="mailto:jonbarron@gmail.com">Email</a> &nbsp;/&nbsp;
-                    <a href="data/JonBarron-CV.pdf">CV</a> &nbsp;/&nbsp;
-                    <a href="data/JonBarron-bio.txt">Bio</a> &nbsp;/&nbsp;
-                    <a href="https://scholar.google.com/citations?hl=en&user=jktWnL8AAAAJ">Scholar</a> &nbsp;/&nbsp;
-                    <!-- <a href="https://twitter.com/jon_barron">Twitter</a> &nbsp;/&nbsp; -->
-                    <a href="https://github.com/jonbarron/">Github</a>
+                    <a href="mailto:ac3582@scarletmail.rutgers.edu">Email</a> &nbsp;/&nbsp;
+                    <a href="data/AdityaChoudhary-CV.pdf">CV</a> &nbsp;/&nbsp;
+                    <a href="data/AdityaChoudhary-bio.txt">Bio</a> &nbsp;/&nbsp;
+                    <!-- <a href="https://twitter.com/your_username">Twitter</a> &nbsp;/&nbsp; -->
+                    <a href="https://github.com/choudharyadi/">Github</a>
                   </p>
                 </td>
                 <td style="padding:2.5%;width:37%;max-width:37%">
@@ -56,8 +60,8 @@
                       // ---------------- CONFIG: all effect tunables ----------------
                       var CONFIG = {
                         STEP: 2,             // Sampling grid size in px; one particle per STEP-th pixel (smaller = more particles).
-                        MAX_PARTICLES: 1000200, // Hard cap on particle count regardless of image size.
-                        PARTICLE_SIZE: 2.5,    // Rendered square size in px (fillRect; squares are much faster than arcs).
+                        MAX_PARTICLES: 100000200, // Hard cap on particle count regardless of image size.
+                        PARTICLE_SIZE: 2.8,    // Rendered square size in px (fillRect; squares are much faster than arcs).
                         MAX_DPR: 10,          // Cap on devicePixelRatio for backing-store resolution (1-2 keeps fill rate sane).
                         BG_WHITE: 200,       // Near-white rule: skip pixels where r,g,b are ALL above this.
                         BG_DIST: 40,         // Background-color rule: skip pixels within this RGB distance of the
@@ -69,7 +73,7 @@
                         SPRING: 0.01,        // Weak spring pulling each particle back to its home position.
                         FLOW_FREQ: 0.004,    // Spatial frequency of the layered-sine flow field (larger = smaller swirls).
                         FLOW_STRENGTH: 0.005,// Ambient drift strength; steady-state wander ~= FLOW_STRENGTH/SPRING px (~2-3px).
-                        SHIMMER_AMP: 0.025, // Per-particle sine jitter force; steady-state wiggle ~=
+                        SHIMMER_AMP: 0.025,  // Per-particle sine jitter force; steady-state wiggle ~=
                         // SHIMMER_AMP/SPRING px (~2px), keeping the face readable.
                         SHIMMER_SPEED: 0.0001, // Radians per frame of the shimmer sine wave.
                         LIFE_MIN: 200,       // Minimum lifespan in frames (~3.3s at 60fps).
@@ -323,11 +327,10 @@
             <tbody>
               <tr>
                 <td style="padding:16px;width:100%;vertical-align:middle">
-                  <h2>Research</h2>
+                  <h2>Projects</h2>
                   <p>
-                    I'm interested in robotics, machine learning, and computer vision. Most of my research is about
-                    autonomous systems moving through an environment. Some projects are <span
-                      class="highlight">highlighted</span>.
+                    I'm interested in robotics, machine learning, and computer vision. Most of my work is about
+                    autonomous systems moving through an environment. 
                   </p>
                 </td>
               </tr>
@@ -337,46 +340,215 @@
             style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
 
-
-              <tr onmouseout="vbanana_stop()" onmouseover="vbanana_start()" bgcolor="#ffffd0">
+              <!-- ===================== Icarus — Autonomous Drone Racing (AI Grand Prix) ===================== -->
+              <tr onmouseout="icarus_stop()" onmouseover="icarus_start()">
                 <td style="padding:16px;width:20%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='vbanana_image'>
-                      <img src='images/vbanana_after.jpg' width=100%>
+                  <div class="one" style="position: relative; width: 200px; height: 200px;">
+                    <img src="images/icarusPicture.png"
+                      style="width: 200px; height: 200px; object-fit: cover; display: block;">
+                    <div class="two" id="icarus_image"
+                      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.2s ease-in-out;">
+                      <video muted autoplay loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                        <source src="images/icarusRehaul_compressed-compressed.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
                     </div>
-                    <img src='images/vbanana_before.jpg' width=100%>
                   </div>
                   <script type="text/javascript">
-                    function vbanana_start() {
-                      document.getElementById('vbanana_image').style.opacity = "1";
+                    function icarus_start() {
+                      document.getElementById('icarus_image').style.opacity = "1";
                     }
 
-                    function vbanana_stop() {
-                      document.getElementById('vbanana_image').style.opacity = "0";
+                    function icarus_stop() {
+                      document.getElementById('icarus_image').style.opacity = "0";
                     }
-                    vbanana_stop()
+                    icarus_stop();
                   </script>
                 </td>
-                <td style="padding:8px;width:80%;vertical-align:middle">
-                  <a href="https://vision-banana.github.io/">
-                    <span class="papertitle">Image Generators are Generalist Vision Learners</span>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="https://github.com/niyelhassan/icarus-rehaul">
+                    <span class="papertitle">Icarus: Autonomous Drone Racing for the AI Grand Prix</span>
                   </a>
                   <br>
-                  <a href="https://gabeur.github.io/">Valentin Gabeur</a>,
-
+                  <strong>Aditya Choudhary</strong> (Team Lead),
+                  Ethan Yung,
+                  Niyel Hassan,
+                  Akshat Tewari,
+                  Saketh Satti,
+                  Luniva Joshi
                   <br>
-                  <em>arXiv</em>, 2026
+                  <em>AI Grand Prix</em> — Virtual Qualifier Round 1, 2026
                   <br>
-                  <a href="https://vision-banana.github.io/">project page</a>
-                  /
-                  <a href="https://arxiv.org/abs/2604.20329">arXiv</a>
+                  <a href="https://github.com/niyelhassan/icarus-rehaul">code</a> /
+                  <a href="https://www.theaigrandprix.com/">competition</a>
                   <p></p>
                   <p>
-                    Reducing monodepth, normals, and semantic segmentation tasks to a single RGB-image-prediction task
-                    and fine-tuning an image generator (Nano Banana Pro) beats or ~matches specialized models.
+                    I led our team to advance past Virtual Qualifier Round 1 of the AI Grand Prix, an autonomous
+                    drone-racing competition founded by Anduril and the Drone Champions League. Icarus is a
+                    full perception-to-control racing stack: it detects gates from the onboard camera feed,
+                    estimates their pose with PnP, plans a racing line, and flies the course via MAVLink
+                    setpoints — developed and validated in Webots and the competition simulator.
+                  </p>
+                  <p>
+                    <strong>Sim runs:</strong> 11/11 gates in 39.18s, 0 collisions &nbsp;·&nbsp; 12/12 gates in
+                    36.99s, 0 collisions
+                    &nbsp;·&nbsp;
+                    31 unit tests passing
                   </p>
                 </td>
               </tr>
+
+              <!-- ===================== Huginn — Autonomous Racing and Mapping (F1TENTH) ===================== -->
+              <tr onmouseout="huginn_stop()" onmouseover="huginn_start()">
+                <td style="padding:16px;width:20%;vertical-align:middle">
+                  <div class="one" style="position: relative; width: 200px; height: 200px;">
+                    <img src="images/autodrivePicture.png"
+                      style="width: 200px; height: 200px; object-fit: cover; display: block;">
+                    <div class="two" id="huginn_image"
+                      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.2s ease-in-out;">
+                      <video muted autoplay loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                        <source src="images/autodrive1.1-compressed.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  </div>
+                  <script type="text/javascript">
+                    function huginn_start() {
+                      document.getElementById('huginn_image').style.opacity = "1";
+                    }
+
+                    function huginn_stop() {
+                      document.getElementById('huginn_image').style.opacity = "0";
+                    }
+                    huginn_stop();
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="https://github.com/choudharyadi/HuginnMuninn">
+                    <span class="papertitle">HuginnMuninn: Autonomous Racing and Mapping for F1TENTH</span>
+                  </a>
+                  <br>
+                  <strong>Aditya Choudhary</strong>
+                  <br>
+                  F1TENTH on AutoDRIVE, 2026
+                  <br>
+                  <a href="https://github.com/choudharyadi/HuginnMuninn">code</a>
+                  <p></p>
+                  <p>
+                    An autonomous racing stack for a simulated F1TENTH car: a pure pursuit controller
+                    tracks an optimized raceline with speed-adaptive lookahead, backed by PID steering and
+                    feedforward + PI speed control, with a follow-the-gap LiDAR fallback. Also includes a
+                    LiDAR occupancy-grid mapping pipeline that builds a map from scan log-odds and extracts
+                    a smoothed 500-point track centerline from it.
+                  </p>
+                  <p>
+                    <strong>Lap Time:</strong> Best: 7.1s / Average 7.2s &nbsp;·&nbsp;
+                    <strong>Centerline:</strong> 29.7 m closed-loop track auto-extracted from LiDAR map
+                  </p>
+                </td>
+              </tr>
+
+              <!-- ===================== 765A — VEX V5 Team Captain (Push Back) ===================== -->
+              <tr onmouseout="r765a_stop()" onmouseover="r765a_start()">
+                <td style="padding:16px;width:20%;vertical-align:middle">
+                  <div class="one" style="position: relative; width: 200px; height: 200px;">
+                    <img src="images/765A.png" style="width: 200px; height: 200px; object-fit: cover; display: block;">
+                    <div class="two" id="r765a_image"
+                      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.2s ease-in-out;">
+                      <video muted autoplay loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                        <source src="images/765A-compressed.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  </div>
+                  <script type="text/javascript">
+                    function r765a_start() { var el = document.getElementById('r765a_image'); if (el) el.style.opacity = "1"; }
+                    function r765a_stop() { var el = document.getElementById('r765a_image'); if (el) el.style.opacity = "0"; }
+                    r765a_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="https://events.vex.com/teams/V5RC/765A">
+                    <span class="papertitle">FuryTech Alpha: Team Captain — VEX V5 Push Back Season</span>
+                  </a>
+                  <br>
+                  <strong>Aditya Choudhary</strong> (team captain), Team 765A — High Technology High School
+                  <br>
+                  <em>2025&ndash;26 VEX V5RC Season: Push Back</em>
+                  <br>
+                  <a href="https://events.vex.com/teams/V5RC/765A">team profile</a> /
+                  <a href="https://events.vex.com/robot-competitions/vex-robotics-competition/RE-V5RC-26-4025.html">World
+                    Championship</a> /
+                  <a href="https://www.hths.mcvsd.org/o/hths/article/2772144">team announcement</a>
+                  <p></p>
+                  <p>
+                    Captained Team 765A through the Push Back season while leading the software
+                    effort: helped develop a <strong>Monte Carlo Localization</strong> (MCL)
+                    algorithm for precise field positioning, and built a <strong>vision-based
+                      autonomous</strong> system that tracked game objects without dead-reckoning. The
+                    team's engineering and design approach earned back-to-back <strong>Design
+                      Awards</strong> and the <strong>Innovate Award</strong> at the New Jersey
+                    State Championship, qualifying for the 2026 VEX Robotics World Championship
+                    in St. Louis.
+                  </p>
+                  <p>
+                    <strong>Result:</strong> 2 Design Awards during the season &nbsp;·&nbsp;
+                    Innovate Award, NJ State Championship (Worlds qualifier) &nbsp;·&nbsp;
+                    2026 VEX World Championship, Innovate Division<!-- ADD: your actual Worlds placement -->
+                  </p>
+                </td>
+              </tr>
+
+              <!-- ===================== 765C — VEX V5 Programming Lead (High Stakes) ===================== -->
+              <tr onmouseout="r765c_stop()" onmouseover="r765c_start()">
+                <td style="padding:16px;width:20%;vertical-align:middle">
+                  <div class="one" style="position: relative; width: 200px; height: 200px;">
+                    <img src="images/765C.png" style="width: 200px; height: 200px; object-fit: cover; display: block;">
+                    <div class="two" id="r765c_image"
+                      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.2s ease-in-out;">
+                      <video muted autoplay loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                        <source src="images/765C-compressed.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  </div>
+                  <script type="text/javascript">
+                    function r765c_start() { var el = document.getElementById('r765c_image'); if (el) el.style.opacity = "1"; }
+                    function r765c_stop() { var el = document.getElementById('r765c_image'); if (el) el.style.opacity = "0"; }
+                    r765c_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="https://events.vex.com/teams/V5RC/765C">
+                    <span class="papertitle">FuryTech Cryo: Autonomous Path-Following and Localization for VEX V5</span>
+                  </a>
+                  <br>
+                  <strong>Aditya Choudhary</strong> (programming lead), Team 765C — High Technology High School
+                  <br>
+                  <em>2024&ndash;25 VEX V5RC Season: High Stakes</em>
+                  <br>
+                  <a href="https://events.vex.com/teams/V5RC/765C">team profile</a> /
+                  <a href="https://events.vex.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-8909.html">World
+                    Championship</a> /
+                  <a href="https://www.hths.mcvsd.org/o/hths/article/2100603/">team announcement</a>
+                  <p></p>
+                  <p>
+                    I built the team's autonomous software: ported the <strong>Ramsete</strong>
+                    feedback controller to the V5 brain to track planned paths, and developed a
+                    <strong>Monte Carlo Localization</strong> (MCL) pipeline fusing wheel odometry
+                    with field landmarks to correct drift helping with the autons. The stack ran all season as the
+                    team's primary autonomous across qualifiers, states, and Worlds.
+                  </p>
+                  <p>
+                    <strong>Result:</strong> Excellence Award (highest all-around award) at the
+                    New Jersey State Championship &nbsp;·&nbsp; qualified for the 2025 VEX Robotics
+                    World Championship, Dallas &nbsp;·&nbsp; <strong>top 16 in the Opportunity
+                      Division</strong>
+                  </p>
+                </td>
+              </tr>
+
+              <!-- ===================== SARTech — Search-and-Rescue Drone (PennApps) ===================== -->
               <tr onmouseout="sartech_stop()" onmouseover="sartech_start()">
                 <td style="padding:16px;width:20%;vertical-align:middle">
                   <div class="one" style="position: relative; width: 200px; height: 200px;">
@@ -385,7 +557,7 @@
                     <div class="two" id="sartech_image"
                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.2s ease-in-out;">
                       <video muted autoplay loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-                        <source src="images/sarTechVideo.mov" type="video/mp4">
+                        <source src="images/sarTechVideo-compressed.mp4" type="video/mp4">
                       </video>
                     </div>
                   </div>
@@ -421,6 +593,7 @@
                   </p>
                 </td>
               </tr>
+
               <!-- ===================== Suvit — Emergency Medical Delivery Rover (Bitcamp) ===================== -->
               <tr onmouseout="suvit_stop()" onmouseover="suvit_start()">
                 <td style="padding:16px;width:20%;vertical-align:middle">
@@ -432,7 +605,7 @@
                     <div class="two" id="suvit_image"
                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.2s ease-in-out;">
                       <video muted autoplay loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-                        <source src="images/suvitVIdeo.mov" type="video/mp4">
+                        <source src="images/suvitVIdeo-compressed.mp4" type="video/mp4">
                       </video>
                     </div>
 
@@ -467,171 +640,62 @@
                 </td>
               </tr>
 
-
-
-              <tr onmouseout="huginn_stop()" onmouseover="huginn_start()">
+              <!-- ===================== Trackie — Congressional App Challenge (NJ-04) ===================== -->
+              <tr onmouseover="trackie_start()" onmouseout="trackie_stop()">
                 <td style="padding:16px;width:20%;vertical-align:middle">
-                  <!-- Set relative positioning on the outer container -->
                   <div class="one" style="position: relative; width: 200px; height: 200px;">
-                    <img src="images/autodrivePicture.png"
+                    <img src="images/trackie.png"
                       style="width: 200px; height: 200px; object-fit: cover; display: block;">
-                    <div class="two" id="huginn_image"
+                    <div class="two" id="trackie_image"
                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.2s ease-in-out;">
                       <video muted autoplay loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-                        <source src="images/autodrive1.1.mov" type="video/mp4">
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
-                  </div>
-
-                  </div>
-                  </div>
-
-
-                  </div>
-                  <script type="text/javascript">
-                    function huginn_start() {
-                      document.getElementById('huginn_image').style.opacity = "1";
-                    }
-
-                    function huginn_stop() {
-                      document.getElementById('huginn_image').style.opacity = "0";
-                    }
-                    huginn_stop();
-                  </script>
-                </td>
-
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://github.com/choudharyadi/HuginnMuninn">
-                    <span class="papertitle">HuginnMuninn: Autonomous Racing and Mapping for F1TENTH</span>
-                  </a>
-                  <br>
-                  <strong>Aditya Choudhary</strong>
-                  <br>
-                  F1TENTH on AutoDRIVE, 2026
-                  <br>
-                  <a href="https://github.com/choudharyadi/HuginnMuninn">code</a>
-                  <p></p>
-                  <p>
-                    An autonomous racing stack for a simulated F1TENTH car: a pure pursuit controller
-                    tracks an optimized raceline with speed-adaptive lookahead, backed by PID steering and
-                    feedforward + PI speed control, with a follow-the-gap LiDAR fallback. Also includes a
-                    LiDAR occupancy-grid mapping pipeline that builds a map from scan log-odds and extracts
-                    a smoothed 500-point track centerline from it.
-                  </p>
-                  <p>
-                    <strong>Lap Time:</strong> Best: 7.1s / Average 7.2s &nbsp;·&nbsp;
-                    <strong>Centerline:</strong> 29.7 m closed-loop track auto-extracted from LiDAR map
-                  </p>
-                </td>
-              </tr>
-              <tr onmouseout="icarus_stop()" onmouseover="icarus_start()">
-                <td style="padding:16px;width:20%;vertical-align:middle">
-                  <!-- Set relative positioning on the outer container -->
-                  <div class="one" style="position: relative; width: 200px; height: 200px;">
-                    <img src="images/icarusPicture.png"
-                      style="width: 200px; height: 200px; object-fit: cover; display: block;">
-                    <div class="two" id="icarus_image"
-                      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.2s ease-in-out;">
-                      <video muted autoplay loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-                        <source src="images/icarusRehaul.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
+                        <source src="images/trackie-compressed.mp4" type="video/mp4">
                       </video>
                     </div>
                   </div>
                   <script type="text/javascript">
-                    function icarus_start() {
-                      document.getElementById('icarus_image').style.opacity = "1";
-                    }
-
-                    function icarus_stop() {
-                      document.getElementById('icarus_image').style.opacity = "0";
-                    }
-                    icarus_stop();
+                    function trackie_start() { var el = document.getElementById('trackie_image'); if (el) el.style.opacity = "1"; }
+                    function trackie_stop() { var el = document.getElementById('trackie_image'); if (el) el.style.opacity = "0"; }
+                    trackie_stop()
                   </script>
                 </td>
                 <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://github.com/niyelhassan/icarus-rehaul">
-                    <span class="papertitle">Icarus: Autonomous Drone Racing for the AI Grand Prix</span>
+                  <a href="https://www.congressionalappchallenge.us/21-nj04/">
+                    <span class="papertitle">Trackie: School Bus Tracker</span>
                   </a>
                   <br>
-                  <strong>Aditya Choudhary</strong> (Team Lead),
-                  Ethan Yung,
-                  Niyel Hassan,
-                  Akshat Tewari,
-                  Akshat Tewari
-                  Saketh Satti,
-                  Luniva Joshi
-
+                  <strong>Aditya Choudhary</strong> (sole developer)
                   <br>
-                  <em>AI Grand Prix</em> — Virtual Qualifier Round 1, 2026
+                  <em>Congressional App Challenge 2021</em> &nbsp;<font color=#FF8080><strong>
+                      (1st Place, NJ-04 — Rep. Chris Smith)</strong></font>
                   <br>
-                  <a href="https://github.com/niyelhassan/icarus-rehaul">code</a> /
-                  <a href="https://www.theaigrandprix.com/">competition</a>
+                  <a href="https://trackie.intelgift.com/">website</a> /
+                  <a href="https://apps.apple.com/us/app/trackie-school-bus-tracker/id1572025693">App Store</a> /
+                  <a href="https://www.congressionalappchallenge.us/21-nj04/">award announcement</a> /
+                  <a href="https://chrissmith.house.gov/news/documentsingle.aspx?DocumentID=409734">congressional press
+                    release</a>
                   <p></p>
                   <p>
-                    I led our team to advance past Virtual Qualifier Round 1 of the AI Grand Prix, an autonomous
-                    drone-racing competition founded by Anduril and the Drone Champions League. Icarus is a
-                    full perception-to-control racing stack: it detects gates from the onboard camera feed,
-                    estimates their pose with PnP, plans a racing line, and flies the course via MAVLink
-                    setpoints — developed and validated in Webots and the competition simulator.
+                    Won the Congressional App Challenge for New Jersey's 4th District as the sole
+                    developer. Trackie tracks school buses so riders know exactly when to head for the
+                    stop: in solo mode it learns a stop's past arrival times and adapts reminders; in
+                    group mode a driver shares live bus location that riders and parents follow on a map.
+                    Shipped on the App Store and running with ~<strong>5,000 monthly active
+                      users</strong> since 2021.
                   </p>
                   <p>
-                    <strong>Official qualifier:</strong> ADVANCED TO PHYSICAL QUALIFIER (rank: __, time: __s)
-                    &nbsp;·&nbsp;
-                    <strong>Sim runs:</strong> 11/11 gates in 39.18s, 0 collisions · 12/12 gates in 36.99s, 0 collisions
-                    &nbsp;·&nbsp;
-                    31 unit tests passing
+                    <strong>Result:</strong> 2021 Congressional App Challenge winner, NJ-04
+                    &nbsp;·&nbsp; recognized in a press release from Rep. Chris Smith &nbsp;·&nbsp;
+                    ~5,000 monthly active users, live on the Apple App Store
                   </p>
                 </td>
               </tr>
-
-
-              <tr onmouseout="radmesh_stop()" onmouseover="radmesh_start()" bgcolor="#ffffd0">
-                <td style="padding:16px;width:20%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='radmesh_image'>
-                      <img src='images/radmesh_after.jpg' width=100%>
-                    </div>
-                    <img src='images/radmesh_before.jpg' width=100%>
-                  </div>
-                  <script type="text/javascript">
-                    function radmesh_start() {
-                      document.getElementById('radmesh_image').style.opacity = "1";
-                    }
-
-                    function radmesh_stop() {
-                      document.getElementById('radmesh_image').style.opacity = "0";
-                    }
-                    radmesh_stop()
-                  </script>
-                </td>
-                <td style="padding:8px;width:80%;vertical-align:middle">
-                  <a href="https://half-potato.gitlab.io/rm/">
-                    <span class="papertitle">Radiance Meshes for Volumetric Reconstruction</span>
-                  </a>
-                  <br>
-                  <a href="https://half-potato.gitlab.io/">Alexander Mai</a>,
-                  <a href="https://github.com/Shmaug">Trevor Hedstrom</a>,
-                  <a href="https://grgkopanas.github.io/">George Kopanas</a>, <br>
-                  <a href="https://mediatech.aalto.fi/~janne/index.php">Janne Kontkanen</a>,
-                  <a href="https://jacobsschool.ucsd.edu/faculty/profile?id=253">Falko Kuester</a>,
-                  <strong>Jonathan T. Barron</strong>
-                  <br>
-                  <em>CVPR</em>, 2026 &nbsp <font color=#FF8080><strong>(Highlight)</strong></font>
-                  <br>
-                  <a href="https://half-potato.gitlab.io/rm/">project page</a>
-                  /
-                  <a href="https://arxiv.org/abs/2512.04076">arXiv</a>
-                  <p></p>
-                  <p>
-                    Parameterizing a scene with a Delaunay tetrahedralization and a neural field yields a scene
-                    representation that is accurate, fast to render, easy to edit, and backwards-compatible.
-                  </p>
-                </td>
-              </tr>
-
+            </tbody>
           </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </body>
 
 </html>
